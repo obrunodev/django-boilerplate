@@ -19,7 +19,7 @@ Instalar o Sass globalmente:
 npm install -g sass
 ```
 
-Rodar sass com seguinte comando:
+Rodar sass com seguinte comando(Na pasta frontend/):
 ```
-sass 
+sass input.scss ../base_static/css/main.css --watch
 ```
