@@ -31,6 +31,7 @@ media
 # Distribution / packaging
 .Python build/
 develop-eggs/
+node_modules/
 dist/
 downloads/
 eggs/
