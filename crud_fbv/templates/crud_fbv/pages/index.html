@@ -3,31 +3,33 @@
 
 {% block content %}
     
-    {% include 'partials/navbar.html' %}
+    {% include 'partials/_sidebar.html' %}
 
-    <div class="container-fluid mt-5">
-        <h1>CRUD Function based views</h1>
+    <main>
+        <div class="container-fluid mt-5">
+            <h1>CRUD Function based views</h1>
 
-        <table class="table table-striped table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pyxel Developers</td>
-                    <td>developer@pyxel.dev.br</td>
-                    <td>(XX) XXXXX-XXXX</td>
-                    <td>
-                        <button type="submit" class="btn btn-danger btn-sm">Remover</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pyxel Developers</td>
+                        <td>developer@pyxel.dev.br</td>
+                        <td>(XX) XXXXX-XXXX</td>
+                        <td>
+                            <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
 {% endblock content %}
