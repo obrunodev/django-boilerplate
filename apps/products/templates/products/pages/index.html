@@ -2,13 +2,24 @@
 {% block title %}Crud Functions{% endblock title %}
 
 {% block content %}
-    
-    {% include 'partials/_navbar.html' %}
 
     <main>
         
         <h1>Produtos</h1>
-        {{ form.as_p }}
+
+        <hr>
+
+        <h3>Cadastrar produto</h3>
+        <form action="{% url 'products:create' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <hr>
+
+        <h3>Lista de produtos</h3>
+        {% include '../partials/product_table.html' %}
 
     </main>
 
