@@ -46,4 +46,3 @@ def products_delete(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         product.delete()
         return redirect('products:index')
-        
