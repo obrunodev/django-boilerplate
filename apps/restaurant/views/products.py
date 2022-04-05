@@ -30,7 +30,7 @@ def products_create(request):
             obj.slug = obj.name.replace(' ', '-').lower()
             obj.save()
             messages.success(request, f'Produto " {obj.name} " cadastrado com sucesso!')
-            return redirect('restaurant:product_index')
+            return redirect('restaurant:products_index')
         print(form.errors)
         return redirect('restaurant:products_index')
 
