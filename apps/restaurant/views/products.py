@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
-from products.forms import ProductForm
-from products.models import Product
+from restaurant.forms import ProductForm
+from restaurant.models import Product
 
 
 def products_index(request):
@@ -25,10 +26,13 @@ def products_create(request):
     if request.method == 'POST':
         form = ProductForm(request.POST or None)
         if form.is_valid():
-            form.save()
-            return redirect('products:index')
+            obj = form.save(commit=False)
+            obj.slug = obj.name.replace(' ', '-').lower()
+            obj.save()
+            messages.success(request, f'Produto " {obj.name} " cadastrado com sucesso!')
+            return redirect('restaurant:product_index')
         print(form.errors)
-        return redirect('products:index')
+        return redirect('restaurant:products_index')
 
 
 def products_update(request, product_id):
@@ -36,13 +40,13 @@ def products_update(request, product_id):
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
-        return redirect('products:index')
+        return redirect('restaurant:products_index')
     print(form.errors)
-    return redirect('products:index')
+    return redirect('restaurant:products_index')
 
 
 def products_delete(request, product_id):
     if request.method == 'POST':
         product = get_object_or_404(Product, pk=product_id)
         product.delete()
-        return redirect('products:index')
+        return redirect('restaurant:products_index')

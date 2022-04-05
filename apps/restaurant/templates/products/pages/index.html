@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Produtos{% endblock title %}
+
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+
+    <main class="container-fluid my-5">
+
+        {% include '../partials/modal_new_product.html' %}
+
+        {% include '../partials/table_products.html' %}
+
+    </main>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+<!-- REGISTER NEW CATEGORIES FORM -->
+<div class="card">
+    <div class="card-header">
+        <h6>Cadastrar nova categoria</h6>
+    </div>
+    <div class="card-body">
+        <form action="{% url 'restaurant:categories_create' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" class="form-control" placeholder="Categoria">
+            <button type="submit" class="btn btn-warning mt-3">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+<!-- DISPLAING MESSAGE FEEDBACK -->
+{% include 'partials/_message.html' %}
+
+<!-- TABLE TO SHOW REGISTERED CATEGORIES -->
+<table class="table table-bordered table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Categorias</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <form action="{% url 'restaurant:categories_delete' category.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
