@@ -31,11 +31,7 @@
                     </div>
                 </div>
 
-                {% if messages %}
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                {% endif %}
+                {% include 'partials/message.html' %}
 
                 <button type="submit" class="btn btn-primary">Cadastrar-se</button>
                 <a class="ml-3" href="{% url 'user:login_view' %}">Já tenho uma conta</a>
