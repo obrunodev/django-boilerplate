@@ -1,4 +1,5 @@
 from django.contrib import auth, messages
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -26,7 +27,7 @@ def signin(request):
             user = auth.authenticate(username=account.username, password=password)
 
             if not email or not password:
-                messages.success(request, "Precisa preencher todos os campos!")
+                messages.error(request, "Precisa preencher todos os campos!")
                 return redirect('user:login_view')
 
             if user is not None:
@@ -38,7 +39,7 @@ def signin(request):
             return redirect('user:login_view')
 
         except User.DoesNotExist:
-            messages.success(request, "Este e-mail não existe! Crie uma conta para ter acesso.")
+            messages.error(request, "Este e-mail não existe! Crie uma conta para ter acesso.")
             return redirect('user:login_view')
 
 
@@ -71,6 +72,16 @@ def signup(request):
         return redirect('user:profile')
 
 
+@login_required(login_url='user:login_view')
 def logout(request):
     auth.logout(request)
     return redirect('user:login_view')
+
+
+@login_required(login_url='user:login_view')
+def get_all_users(request):
+    User = get_user_model()
+    context = {
+        'users': User.objects.all(),
+    }
+    return render(request, 'user/pages/index.html', context)

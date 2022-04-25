@@ -3,13 +3,9 @@
 
 {% block content %}
 
-    {% include 'partials/_navbar.html' %}
+    {% include 'partials/navbar.html' %}
 
-    {% if messages %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    {% endif %}
+    {% include 'partials/message.html' %}
 
     <div class="card m-auto w-50 mt-5">
         <div class="card-header">
