@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    Registrar compra de produtos
+  </div>
+  <div class="card-body">
+    <form action="{% url 'restaurant:purchases_create' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-4">
+          <label for="product" class="form-label">Produto</label>
+          <select name="product" id="product" class="form-select">
+            {% for product in products %}
+              <option value="{{ product }}">{{ product }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="quantity" class="form-label">Quantidade</label>
+          <input type="text" name="quantity" class="form-control">
+        </div>
+        <div class="col-md-4">
+          <label for="cost" class="form-label">Custo por produto</label>
+          <input type="text" name="cost" class="form-control">
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-success mt-3">Salvar</button>
+    </form>
+  </div>
+</div>

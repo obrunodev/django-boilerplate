@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Vendas{% endblock title %}
+{% block content %}
+
+  {% include 'partials/_navbar.html' %}
+
+  <div class="container">
+    <h1 class="mt-3">Vendas realizadas</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Valor total</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sale in sales %}
+          <tr>
+            <td>{{ sale.created_at }}</td>
+            <td>{{ sale.value }}</td>
+            <td><a href="#" class="btn btn-danger btn-sm disabled">Remover</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

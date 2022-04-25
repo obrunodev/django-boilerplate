@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Product
+from .models import Purchase
 
 
 class ProductForm(forms.ModelForm):
@@ -18,3 +19,11 @@ class ProductForm(forms.ModelForm):
             'quantity': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
         }
+
+
+class PurchaseForm(forms.ModelForm):
+    class Meta:
+        model = Purchase
+        fields = ['product',
+                  'quantity',
+                  'cost']

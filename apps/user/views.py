@@ -36,7 +36,7 @@ def signin(request):
 
             messages.error(request, "Não foi possível logar. Tente novamente!")
             return redirect('user:login_view')
-        
+
         except User.DoesNotExist:
             messages.success(request, "Este e-mail não existe! Crie uma conta para ter acesso.")
             return redirect('user:login_view')

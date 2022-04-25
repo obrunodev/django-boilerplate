@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+      <th>Custo unitário</th>
+      <th>Custo total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for purchase in purchases %}
+      <tr>
+        <td>{{ purchase.product }}</td>
+        <td>{{ purchase.quantity }}</td>
+        <td>{{ purchase.cost }}</td>
+        <td>{{ purchase.total_cost }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

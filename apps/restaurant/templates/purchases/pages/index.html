@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Compra de produtos{% endblock title %}
+{% block content %}
+
+  {% include 'partials/_navbar.html' %}
+
+  <div class="container">
+    <h1 class="my-3">Compra de produtos</h1>
+
+    {% include '../partials/form_purchase.html' %}
+
+    {% include 'partials/_message.html' %}
+
+    {% include '../partials/table_purchase.html' %}
+  </div>
+
+{% endblock content %}
