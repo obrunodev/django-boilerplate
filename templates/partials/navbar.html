@@ -38,8 +38,12 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary" href="{% url 'user:register_view' %}"><strong>Criar conta</strong></a>
-                    <a class="button is-light" href="{% url 'user:login_view' %}">Login</a>
+                    {% if user.is_authenticated %}
+                        <a class="button is-light" href="{% url 'user:logout' %}">Logout</a>
+                    {% else %}
+                        <a class="button is-light" href="{% url 'user:login_view' %}">Login</a>
+                        <a class="button is-primary" href="{% url 'user:register_view' %}"><strong>Criar conta</strong></a>
+                    {% endif %}
                 </div>
             </div>
         </div>
