@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <div class="card-header-title">
+      Cadastrar produto
+    </div>
+  </div>
+  <div class="card-content">
+    <form class="form" action="{% url 'restaurant:products_create' %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="button" type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>

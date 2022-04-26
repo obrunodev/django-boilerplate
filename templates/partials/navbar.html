@@ -1,0 +1,61 @@
+{% load static %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+            <img src="{% static 'img/logo.png' %}">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Cadastros</a>
+        
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{% url 'restaurant:products_index' %}">Produtos</a>
+                    <a class="navbar-item" href="{% url 'restaurant:categories_index' %}">Categorias</a>
+                </div>
+            </div>
+            
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Vendas</a>
+        
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{% url 'restaurant:cart_index' %}">Vender</a>
+                    <a class="navbar-item" href="{% url 'restaurant:sales_index' %}">Lista de vendas</a>
+                </div>
+            </div>
+
+            <a class="navbar-item" href="{% url 'restaurant:purchases_index' %}">Compras</a>
+        </div>
+    
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="{% url 'user:register_view' %}"><strong>Criar conta</strong></a>
+                    <a class="button is-light" href="{% url 'user:login_view' %}">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function() {
+
+        // Check for click events on the navbar burger icon
+        $(".navbar-burger").click(function() {
+      
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            $(".navbar-burger").toggleClass("is-active");
+            $(".navbar-menu").toggleClass("is-active");
+      
+        });
+    });
+</script>
