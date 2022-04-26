@@ -1,14 +1,17 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
-from restaurant.forms import ProductForm
 from restaurant.models import Product
+from restaurant.models import Category
+
+from restaurant.forms import ProductForm
 
 
 def products_index(request):
     context = {
         'form': ProductForm(),
         'products': Product.objects.all(),
+        'categories': Category.objects.all(),
     }
     return render(request, 'products/pages/index.html', context)
 
@@ -24,6 +27,7 @@ def product_detail(request, product_id):
 
 def products_create(request):
     if request.method == 'POST':
+        category = request.POST['category']
         form = ProductForm(request.POST or None)
         if form.is_valid():
             obj = form.save(commit=False)

@@ -7,8 +7,35 @@
   <div class="card-content">
     <form class="form" action="{% url 'restaurant:products_create' %}" method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
-      <button class="button" type="submit">Cadastrar</button>
+      <div class="columns">
+        <div class="column">
+          <label for="name" class="label">Nome</label>
+          <input type="text" name="name" class="input">
+        </div>
+        <div class="column">  
+          <label for="price" class="label">Preço</label>
+          <input type="text" name="price" class="input">
+        </div>
+        <div class="column">
+          <label for="quantity" class="label">Quantidade</label>
+          <input type="text" name="quantity" class="input">
+        </div>
+        <div class="column">
+          <label for="category" class="label">Categoria</label>
+          <div class="select">
+            <select name="category" id="category">
+              <option value="">Sem categoria</option>
+              {% for category in categories %}
+                <option value="{{ category.pk }}">{{ category }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+      <label for="description" class="label">Descrição</label>
+      <input type="text" name="description" class="input">
+
+      <button class="button mt-3 is-success" type="submit">Cadastrar</button>
     </form>
   </div>
 </div>

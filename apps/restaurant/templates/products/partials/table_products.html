@@ -2,7 +2,7 @@
 
 {% include 'partials/message.html' %}
 
-<table class="table">
+<table class="table is-fullwidth">
     <thead>
         <tr>
             <th>Produto</th>
@@ -27,12 +27,12 @@
                         Sem categoria
                     {% endif %}
                 </td>
-                <td>
+                <td class="is-flex">
+                    <a href="{% url 'restaurant:products_detail' product.pk %}" class="button is-warning is-small mr-2">Editar</a>
                     <form id="deleteForm" action="{% url 'restaurant:products_delete' product.pk %}" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="button">Deletar</button>
+                        <button type="submit" class="button is-danger is-small">Deletar</button>
                     </form>
-                    <a href="{% url 'restaurant:products_detail' product.pk %}" class="button">Editar</a>
                 </td>
             </tr>
         {% endfor %}
