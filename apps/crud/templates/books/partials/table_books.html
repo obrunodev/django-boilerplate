@@ -18,6 +18,10 @@
           <a href="{% url 'crud:books_delete' book.pk %}" class="button is-danger is-small">Deletar</a>
         </td>
       </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4" class="has-text-centered">Não foi encontrado nenhum registro na lista</td>
+      </tr>
     {% endfor %}
   </tbody>
 </table>
