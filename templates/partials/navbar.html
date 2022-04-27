@@ -14,25 +14,7 @@
     
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Cadastros</a>
-        
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{% url 'restaurant:products_index' %}">Produtos</a>
-                    <a class="navbar-item" href="{% url 'restaurant:categories_index' %}">Categorias</a>
-                </div>
-            </div>
-            
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Vendas</a>
-        
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{% url 'restaurant:cart_index' %}">Vender</a>
-                    <a class="navbar-item" href="{% url 'restaurant:sales_index' %}">Lista de vendas</a>
-                </div>
-            </div>
-
-            <a class="navbar-item" href="{% url 'restaurant:purchases_index' %}">Compras</a>
+            <a class="navbar-item" href="{% url 'crud:books_index' %}">Livros</a>
         </div>
     
         <div class="navbar-end">

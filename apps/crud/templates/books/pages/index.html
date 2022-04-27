@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Livros{% endblock title %}
+{% block content %}
+
+  {% include 'partials/navbar.html' %}
+
+  <div class="container is-max-widescreen mt-5">
+    <h1 class="title">Livros</h1>
+
+    {% include '../partials/table_books.html' %}
+  </div>
+
+{% endblock content %}
