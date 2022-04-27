@@ -15,7 +15,7 @@
         <td>{{ book.pages }}</td>
         <td class="id-flex">
           <a href="{% url 'crud:books_detail' book.pk %}" class="button is-warning is-small mr-2">Editar</a>
-          <a href="{% url 'crud:books_delete' book.pk %}" class="button is-danger is-small">Deletar</a>
+          <a href="{% url 'crud:books_delete' book.pk %}" id="delete" class="button is-danger is-small">Deletar</a>
         </td>
       </tr>
     {% empty %}
