@@ -6,22 +6,18 @@ from crud.forms import BookForm
 
 
 def index(request):
-    context = {
-        'books': Book.objects.all(),
-    }
+    context = {'books': Book.objects.all(),}
     return render(request, 'books/pages/index.html', context)
 
 
 def detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    context = {
-        'book': book
-    }
+    context = {'book': book}
     return render(request, 'books/pages/detail.html', context)
 
 
-def new(request):
-    return render(request, 'books/pages/new.html')
+def create_template(request):
+    return render(request, 'books/pages/create.html')
 
 
 def create(request):
