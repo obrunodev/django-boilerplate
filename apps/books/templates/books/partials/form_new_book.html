@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-content">
+    <p class="title is-5">Cadastre seu livro</p>
+    <form action="{% url 'books_create' %}" method="post">
+      {% csrf_token %}
+      <div class="columns">
+        <div class="column">
+          <label for="title" class="label">Título</label>
+          <input type="text" name="title" class="input" required>
+        </div>
+        <div class="column">
+          <label for="author" class="label">Autor do livro</label>
+          <input type="text" name="author" class="input" required>
+        </div>
+        <div class="column">
+          <label for="pages" class="label">Número de páginas</label>
+          <input type="number" name="pages" class="input" required>
+        </div>
+      </div>
+      <button type="submit" class="button is-success">Salvar</button>
+    </form>
+  </div>
+</div>

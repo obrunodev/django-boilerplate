@@ -14,8 +14,8 @@
         <td>{{ book.pages }}</td>
         <td>{{ book.author }}</td>
         <td class="is-flex">
-          <a href="#" class="button is-warning is-small mr-2">Editar</a>
-          <a href="#" class="button is-danger is-small">Deletar</a>
+          <a href="{{ book.get_absolute_url }}" class="button is-warning is-small mr-2">Editar</a>
+          <a href="{% url 'books_delete' book.pk %}" class="button is-danger is-small">Deletar</a>
         </td>
       </tr>
     {% endfor %}
