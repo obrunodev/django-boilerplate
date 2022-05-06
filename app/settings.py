@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'books',
-    'crud',
     'user',
 ]
 
