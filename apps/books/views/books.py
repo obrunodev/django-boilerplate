@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
 from books.models import Book
@@ -14,9 +15,10 @@ def create(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('books_create')
-        print(form.errors)
-        return redirect('books_create')
+            messages.success(request, 'Livro cadastrado com sucesso!')
+            return redirect('books_index')
+        messages.error(request, 'Não foi possível cadastrar o livro!')
+        return redirect('books_index')
     else:
         return render(request, 'books/pages/create.html')
 
@@ -27,7 +29,9 @@ def update(request, pk):
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Livro atualizado com sucesso!')
             return redirect('books_index')
+        messages.error(request, 'Não foi possível atualizar o livro!')
         return redirect('books_index')
     else:
         context = {'book': book}
@@ -38,6 +42,7 @@ def delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         book.delete()
+        messages.success(request, 'Livro removido com sucesso')
         return redirect('books_index')
     else:
         context = {'book': book}

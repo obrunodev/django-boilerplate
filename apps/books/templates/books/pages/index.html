@@ -9,6 +9,7 @@
     <h2 class="subtitle">Listagem de todos os livros cadastrados</h2>
     <a href="{% url 'books_create' %}" class="button is-success">Cadastrar livro</a>
     <div class="my-5">
+      {% include 'partials/message.html' %}
       {% include '../partials/table_books.html' %}
     </div>
   </div>
