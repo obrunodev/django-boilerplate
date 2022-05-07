@@ -8,7 +8,7 @@ from books.forms import BookForm
 
 def index(request):
     books = Book.objects.all()
-    paginator = Paginator(books, 5)
+    paginator = Paginator(books, 10)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
