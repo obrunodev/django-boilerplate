@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'books_vue/pages/index.html')
+    return render(request, 'vue/pages/index.html')
 
 
 def create(request):
