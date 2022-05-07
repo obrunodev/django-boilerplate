@@ -8,10 +8,18 @@ Arquitetura Django pronta para iniciar projetos
 
 CRUDs desenvolvidos com Django
 
-Recursos:
-- App users para login e criação de contas
-- CRUD de livros com function based views
+### CRUD books com function based views:
+
   - [x] CRUD
   - [x] Messages
   - [x] Pagination
   - [ ] Search
+
+### Sistema de login com model User Django
+
+  - [x] Registrar usuário
+  - [x] Login com e-mail
+  - [ ] Login com username
+  - [x] Confirmar senha (front e back)
+
+### CRUD books_vue usando Vue no front-end (Em desenvolvimento)
