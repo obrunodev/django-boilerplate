@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for book in books %}
+    {% for book in page_obj %}
       <tr>
         <td>{{ book.title }}</td>
         <td>{{ book.pages }}</td>
@@ -21,3 +21,22 @@
     {% endfor %}
   </tbody>
 </table>
+
+<nav class="pagination" role="pagination" aria-label="pagination">
+
+  <ul class="pagination-list">
+    {% if not page_obj.number == 1 %}
+      <a class="pagination-link" href="?page=1">Primeiro</a>
+    {% endif %}
+    {% if page_obj.has_previous %}
+      <a class="pagination-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+    {% endif %}
+    <a class="pagination-link is-current" aria-label="Page {{ page_obj.number }}" aria-current="page">{{ page_obj.number }}</a>
+    {% if page_obj.has_next %}
+      <a class="pagination-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+    {% endif %}
+    {% if not page_obj.number == page_obj.paginator.num_pages %}
+      <a class="pagination-link" href="?page={{ page_obj.paginator.num_pages }}">Último</a>
+    {% endif %}
+  </ul>
+</nav>

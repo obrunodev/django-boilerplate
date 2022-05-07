@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
 
 from books.models import Book
@@ -6,8 +7,12 @@ from books.forms import BookForm
 
 
 def index(request):
-    context = {'books': Book.objects.all()}
-    return render(request, 'books/pages/index.html', context)
+    books = Book.objects.all()
+    paginator = Paginator(books, 5)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'books/pages/index.html', {'page_obj': page_obj})
 
 
 def create(request):

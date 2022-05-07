@@ -13,5 +13,5 @@ Recursos:
 - CRUD de livros com function based views
   - [x] CRUD
   - [x] Messages
-  - [ ] Pagination
+  - [x] Pagination
   - [ ] Search
