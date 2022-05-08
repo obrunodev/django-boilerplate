@@ -18,6 +18,8 @@
           <a href="{% url 'books_delete' book.pk %}" class="button is-danger is-small">Deletar</a>
         </td>
       </tr>
+    {% empty %}
+      <td colspan="4"><center>Não foi encontrado nenhum livro</center></td>
     {% endfor %}
   </tbody>
 </table>
