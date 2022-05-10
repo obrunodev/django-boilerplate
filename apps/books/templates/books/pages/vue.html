@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Books with Vue{% endblock %}
+{% block content %}
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="container is-max-widescreen mt-5">
+        <h1 class="title">Lista de livros</h1>
+
+        <div id="app">
+            <button class="button is-primary" v-on:click="showBooks()">Carregar livros</button>
+            <table class="table is-fullwidth">
+                <thead>
+                    <th>Título</th>
+                    <th>autor</th>
+                    <th>Páginas</th>
+                </thead>
+                <tbody>
+                    <tr v-for="data in info">
+                        <td>[[ data.title ]]</td>
+                        <td>[[ data.author ]]</td>
+                        <td>[[ data.pages ]]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra-js %}
+<script>
+    var app = new Vue({
+        delimiters: ["[[", "]]"],
+        el: '#app',
+        data: {
+            'info': null
+        },
+        methods: {
+            showBooks: function() {
+                axios.get('/books/api').then(res => {
+                    this.info = res.data.response;
+                });
+            }
+        }
+    });
+
+</script>
+{% endblock %}

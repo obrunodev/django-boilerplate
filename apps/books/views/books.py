@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from books.models import Book
@@ -52,3 +53,12 @@ def delete(request, pk):
     else:
         context = {'book': book}
         return render(request, 'books/pages/delete.html', context)
+
+
+def index_view(request):
+    return render(request, 'books/pages/vue.html')
+
+
+def index_json(request):
+    books = Book.objects.values()
+    return JsonResponse({'response': list(books)})
