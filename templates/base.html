@@ -19,6 +19,9 @@
     {% block content %}{% endblock content %}
 
     <!-- SCRIPTS -->
+    <!-- Bootstrap 5 JS -->
+    <!-- TODO Verificar possibilidade de importar dentro do arquivo script.js -->
+    <script type="text/javascript" src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Custom JS -->
     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
     {% block js %}{% endblock %}
