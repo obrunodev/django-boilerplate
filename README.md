@@ -1,25 +1,17 @@
 # Django boilerplate
 
-Arquitetura Django pronta para iniciar projetos
+Boilerplate Django pronta para iniciar projetos
 
-### Stack
-- Django
-# CRUDs django
+TODOs:
+- [ ] Import local bootstrap 5
 
-CRUDs desenvolvidos com Django
+- [ ] CRUD livros
+  - [ ] Create view
+  - [ ] Retrieve view
+  - [ ] Update view
+  - [ ] Delete view
 
-### CRUD books com function based views:
-
-  - [x] CRUD
-  - [x] Messages
-  - [x] Pagination
-  - [ ] Search
-
-### Sistema de login com model User Django
-
-  - [x] Registrar usuário
-  - [x] Login com e-mail
+- [ ] CRUD users
+  - [ ] Login com e-mail
   - [ ] Login com username
-  - [x] Confirmar senha (front e back)
-
-### CRUD books_vue usando Vue no front-end (Em desenvolvimento)
+  - [ ] Confirmar senha (front & back)
