@@ -1,12 +1,5 @@
 {% if messages %}
     {% for message in messages %}
-        <article class="message is-{{ message.tags }} my-3">
-            <div class="message-header">
-                Mensagem!
-            </div>
-            <div class="message-body">
-                {{ message }}
-            </div>
-        </article>
+        {{ message }}
     {% endfor %}
 {% endif %}
