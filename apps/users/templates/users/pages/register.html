@@ -4,10 +4,12 @@
 
     <div class="container">
         
-        <div class="card w-50 m-auto">
-            <div class="card-body">
+        <div class="card w-75 m-auto">
+            <div class="card-header">
                 <h4 class="card-title">Criar conta</h4>
-                <form action="" method="post">
+            </div>
+            <div class="card-body">
+                <form action="{% url 'users:register' %}" method="POST">
                     {% csrf_token %}
                     {{ form }}
                     <button type="submit" class="btn btn-primary mt-3">Registrar</button>
