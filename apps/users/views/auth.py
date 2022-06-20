@@ -9,8 +9,11 @@ def register(request):
         form = RegisterForm(request.POST or None)
         if form.is_valid():
             form.save()
-            messages.sucess(request, 'Conta criada com sucesso!')
-            return redirect('users:register')
+            messages.success(request, 'Conta criada com sucesso!')
+            return render(
+                request,
+                'users/pages/profile.html',
+            )
         messages.error(request, 'Não foi possível criar uma conta, tente novamente!')
         return redirect('users:register')
     else:
@@ -23,3 +26,7 @@ def login(request):
         pass
     else:
         return render(request, 'users/pages/login.html')
+
+
+def profile(request):
+    pass

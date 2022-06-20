@@ -18,9 +18,5 @@
         </div>
     {% endfor %}
 
-    {% if messages %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    {% endif %}
+    {% include 'partials/message.html' %}
 </div>
