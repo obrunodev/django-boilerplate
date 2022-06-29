@@ -3,15 +3,11 @@
 Boilerplate Django pronta para iniciar projetos
 
 TODOs:
-- [ ] Import local bootstrap 5
+- [x] Import local bootstrap 5
+- [x] Import htmx library
 
-- [ ] CRUD livros
-  - [ ] Create view
-  - [ ] Retrieve view
-  - [ ] Update view
-  - [ ] Delete view
-
-- [ ] CRUD users
-  - [ ] Login com e-mail
-  - [ ] Login com username
-  - [ ] Confirmar senha (front & back)
+- [ ] Core app with empty functions
+- [ ] Function based views CRUD.
+- [ ] Class based views CRUD.
+- [ ] Django Rest API CRUD.
+- [ ] User authentication system.
