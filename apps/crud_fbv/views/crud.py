@@ -48,8 +48,10 @@ def update(request, pk):
 
 
 def delete(request, pk):
-    if request.method == 'POST':
-        pass
+    book = get_object_or_404(Book, pk=pk)
 
-    if request.method == 'GET':
-        pass
+    if request.method == 'POST':
+        book.delete()
+        return redirect('crud_fbv:index')
+
+    return render(request, 'crud_fbv/pages/delete.html', {'book': book})

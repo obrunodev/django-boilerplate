@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Excluir livro{% endblock title %}
+{% block content %}
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="container mt-3">
+        <h3>Editar livro</h3>
+
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Tem certeza que deseja excluir esse livro</p>
+
+                <div class="d-flex">
+                    <form action="{% url 'crud_fbv:delete' book.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
+
+                    <a href="{% url 'crud_fbv:index' %}" class="btn btn-warning ms-2">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

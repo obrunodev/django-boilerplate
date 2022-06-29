@@ -10,7 +10,11 @@
     <tbody>
         {% for book in books %}
             <tr>
-                <td>{{ book.title }}</td>
+                <td>
+                    {{ book.title }}
+                    <a href="{% url 'crud_fbv:update' book.pk %}" class="text-success">Editar</a>
+                    <a href="{% url 'crud_fbv:delete' book.pk %}" class="text-danger">Remover</a>
+                </td>
                 <td>{{ book.author }}</td>
                 <td>{{ book.genre }}</td>
                 <td>R$ {{ book.price|floatformat:2 }}</td>
