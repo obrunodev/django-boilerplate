@@ -2,11 +2,15 @@
 
 Boilerplate Django pronta para iniciar projetos
 
-TODOs:
-- [x] Import local bootstrap 5
-- [x] Import htmx library
+### O que vem instalado?
 
-- [ ] Core app with empty functions
+- [x] Bootstrap 5
+- [x] Bootstrap icons
+- [x] htmx.js
+
+### TODOs
+
+- [x] Core app with empty functions
 - [ ] Function based views CRUD.
 - [ ] Class based views CRUD.
 - [ ] Django Rest API CRUD.
