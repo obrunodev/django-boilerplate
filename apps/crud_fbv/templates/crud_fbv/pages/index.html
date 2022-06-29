@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}CRUD FBV{% endblock title %}
+{% block content %}
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="container mt-3">
+        <h3>CRUD Function based views</h3>
+
+        {% include '../partials/books_table.html' %}
+    </div>
+
+{% endblock content %}
