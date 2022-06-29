@@ -8,6 +8,13 @@
         </tr>
     </thead>
     <tbody>
-        
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.genre }}</td>
+                <td>R$ {{ book.price|floatformat:2 }}</td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>

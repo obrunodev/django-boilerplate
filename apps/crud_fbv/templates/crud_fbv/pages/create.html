@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Cadastrar livro fbv{% endblock title %}
+{% block content %}
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="container mt-3">
+        <h3>Novo livro</h3>
+
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">Insira as informações do livro abaixo</p>
+
+                <form action="{% url 'crud_fbv:create' %}" method="post">
+                    {% csrf_token %}
+
+                    {% include '../partials/books_form.html' %}
+
+                    <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
