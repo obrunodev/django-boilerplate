@@ -3,7 +3,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from crud_fbv.models import Book
 from crud_fbv.models import Genre
 from crud_fbv.forms import BookForm
-from crud_fbv.forms import GenreForm
+
+# TODO(Bruno): Add successes messages
 
 
 def index(request):
@@ -12,6 +13,7 @@ def index(request):
 
 
 def create(request):
+    # FIXME(Bruno): Permitir valor digitado com vírgula.
     context = {}
 
     if request.method == 'POST':
