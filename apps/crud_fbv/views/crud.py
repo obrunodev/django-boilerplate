@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from crud_fbv.models import Book
 from crud_fbv.models import Genre
@@ -30,11 +30,21 @@ def create(request):
 
 
 def update(request, pk):
+    context = {}
+    book = get_object_or_404(Book, pk=pk)
+    form = BookForm(request.POST or None, instance=book)
+
     if request.method == 'POST':
-        pass
+        if form.is_valid():
+            form.save()
+            return redirect('crud_fbv:index')
 
     if request.method == 'GET':
-        pass
+        context['book'] = book
+        context['genres'] = Genre.objects.all()
+
+    context['form'] = form
+    return render(request, 'crud_fbv/pages/update.html', context)
 
 
 def delete(request, pk):
