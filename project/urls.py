@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('crud_cbv/', include('crud_cbv.urls')),
     path('crud_fbv/', include('crud_fbv.urls')),
+    path('user/', include('user.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
