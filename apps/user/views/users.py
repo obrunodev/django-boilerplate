@@ -14,31 +14,30 @@ def profile(request):
 
 
 def signin(request):
+    # TODO Melhorar função de autenticação
     if request.method == 'POST':
         form = SignInForm(request.POST)
-        return
-        # try:
-        #     email = request.POST['email']
-        #     password = request.POST['password']
-        #     account = User.objects.get(email=email)
-        #     user = authenticate(username=account.username, password=password)
+        if form.is_valid():
+            try:
+                username = request.POST.get('username')
+                password = request.POST.get('password')
+                user = authenticate(username=username, password=password)
 
-        #     if not email or not password:
-        #         messages.success(request, "Precisa preencher todos os campos!")
-        #         return redirect('user:signin')
+                if not username or not password:
+                    messages.error(request, "Precisa preencher todos os campos!")
+                    return redirect('user:signin')
 
-        #     if user is not None:
-        #         login(request, user)
-        #         messages.success(request, "Logado com sucesso")
-        #         return redirect('user:profile')
+                if user is not None:
+                    login(request, user)
+                    return redirect('user:profile')
 
-        #     messages.error(request, "Não foi possível logar. Tente novamente!")
-        #     return redirect('user:signin')
+                messages.error(request, "Erro ao logar. Tente novamente!")
+                return redirect('user:signin')
+            
+            except User.DoesNotExist:
+                messages.error(request, "Este usuário não existe! Crie uma conta para ter acesso.")
+                return redirect('user:signin')
         
-        # except User.DoesNotExist:
-        #     messages.success(request, "Este e-mail não existe! Crie uma conta para ter acesso.")
-        #     return redirect('user:signin')
-    
     if request.method == 'GET':
         form = SignInForm()
         context = {'form': form}
@@ -49,10 +48,7 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username') 
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password) 
+            user = form.save()
             login(request, user)
             return redirect('user:profile')
         

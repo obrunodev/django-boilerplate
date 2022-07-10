@@ -7,6 +7,8 @@
             <h1>Faça login</h1>
         </div>
         <div class="card-body">
+            {% include 'partials/message.html' %}
+
             <form action="{% url 'user:signin' %}" method="post">
                 {% csrf_token %}
 
