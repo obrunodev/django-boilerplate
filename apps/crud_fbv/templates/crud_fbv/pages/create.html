@@ -14,7 +14,7 @@
                 <form action="{% url 'crud_fbv:create' %}" method="post">
                     {% csrf_token %}
 
-                    {% include '../partials/books_form.html' %}
+                    {% include 'partials/form.html' %}
 
                     <button type="submit" class="btn btn-outline-primary">Cadastrar</button>
                 </form>

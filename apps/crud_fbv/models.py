@@ -10,7 +10,7 @@ class BaseModel(models.Model):
 
 
 class Genre(BaseModel):
-    name = models.CharField(max_length=50, verbose_name='Gênero')
+    name = models.CharField('Gênero', max_length=50)
 
     def __str__(self):
         return self.name
@@ -21,10 +21,10 @@ class Genre(BaseModel):
 
 
 class Book(BaseModel):
-    title = models.CharField(max_length=200, verbose_name='Título')
-    author = models.CharField(max_length=200, verbose_name='Autor')
+    title = models.CharField('Título', max_length=200)
+    author = models.CharField('Autor', max_length=200)
     genre = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True, verbose_name='Gênero')
-    price = models.DecimalField(verbose_name='Preço', max_digits=10, decimal_places=2)
+    price = models.DecimalField('Preço', max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.title
