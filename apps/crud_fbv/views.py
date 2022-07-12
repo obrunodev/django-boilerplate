@@ -14,7 +14,8 @@ def index(request):
 
 def create(request):
     # FIXME(back-end): Permitir valor digitado com vírgula.
-    context = {}
+    genres = Genre.objects.all()
+    context = {'genres': genres}
 
     if request.method == 'POST':
         form = BookForm(request.POST or None)
@@ -25,8 +26,6 @@ def create(request):
 
     if request.method == 'GET':
         context['form'] = BookForm()
-    
-    context['genres'] = Genre.objects.all()
     
     return render(request, 'crud_fbv/pages/create.html', context)
 

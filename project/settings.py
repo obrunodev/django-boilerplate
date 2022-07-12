@@ -28,9 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'user',
     'core',
-    'crud_cbv',
+    'user',
     'crud_fbv',
 ]
 

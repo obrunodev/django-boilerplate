@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import crud
+from . import views
 
 app_name = 'crud_fbv'
 urlpatterns = [
-    path('', crud.index, name='index'),
-    path('create/', crud.create, name='create'),
-    path('<int:pk>/update/', crud.update, name='update'),
-    path('<int:pk>/delete/', crud.delete, name='delete'),
+    path('', views.index, name='index'),
+    path('create/', views.create, name='create'),
+    path('<int:pk>/update/', views.update, name='update'),
+    path('<int:pk>/delete/', views.delete, name='delete'),
 ]
