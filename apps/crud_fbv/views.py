@@ -4,9 +4,8 @@ from crud_fbv.models import Book
 from crud_fbv.models import Genre
 from crud_fbv.forms import BookForm
 
+
 # TODO(back-end): Add successes messages
-
-
 def index(request):
     books = Book.objects.all()
     return render(request, 'crud_fbv/pages/index.html', {'books': books})

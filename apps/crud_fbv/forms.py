@@ -45,3 +45,5 @@ class BookForm(forms.ModelForm):
                 code='Invalid'
             )
             raise ValidationError({'title': name_empty_error})
+
+# BookFormSet = forms.inlineformset_factory(Book, form=BookForm)
