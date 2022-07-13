@@ -23,11 +23,6 @@ class BookForm(forms.ModelForm):
                 'max_length': 'Este campo não pode ter mais de 100 caracteres.'
             }
         }
-        # widgets = {
-        #     'first_name': forms.TextInput(attrs={
-        #         'class': 'form-control'
-        #     })
-        # }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -45,5 +40,3 @@ class BookForm(forms.ModelForm):
                 code='Invalid'
             )
             raise ValidationError({'title': name_empty_error})
-
-# BookFormSet = forms.inlineformset_factory(Book, form=BookForm)
